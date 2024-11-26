@@ -1,9 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import {ReactElement, StrictMode} from 'react'
+import {createRoot, Root} from 'react-dom/client'
 import {App} from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const rootElement: HTMLElement = document.getElementById('root')!
+const rootReactElement: Root = createRoot(rootElement)
+const app: ReactElement = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+
+rootReactElement.render(app)
